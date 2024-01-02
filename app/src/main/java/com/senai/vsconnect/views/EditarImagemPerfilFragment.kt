@@ -2,6 +2,7 @@ package com.senai.vsconnect.views
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
 import androidx.fragment.app.Fragment
@@ -21,6 +22,9 @@ class EditarImagemPerfilFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    // Constante para o código de solicitação da imagem do perfil
+    private val IMAGEM_PERFIL_REQUEST_CODE = 123
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,19 +68,23 @@ class EditarImagemPerfilFragment : Fragment() {
     }
 
 
-    // Constante para o código de solicitação da imagem do perfil
-    private val IMAGEM_PERFIL_REQUEST_CODE = 123
-
     // Manipule o resultado da escolha da imagem
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         val profile_image = view?.findViewById<ImageView>(R.id.profile_image)
 
         if (requestCode == IMAGEM_PERFIL_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            // A imagem foi escolhida ou capturada com sucesso
-            val imagemSelecionadaUri = data?.data
-            // Faça algo com a URI da imagem selecionada, como exibi-la na ImageView
-            profile_image?.setImageURI(imagemSelecionadaUri)
+            if (data?.data != null) {
+                // Imagem escolhida da galeria
+                val imagemSelecionadaUri = data.data
+                profile_image?.setImageURI(imagemSelecionadaUri)
+                // Lógica adicional para ação da galeria
+            } else if (data?.action == "inline-data") {
+                // Imagem capturada pela câmera
+                val imagemCapturada = data.extras?.get("data") as Bitmap
+                profile_image?.setImageBitmap(imagemCapturada)
+                // Lógica adicional para ação da câmera
+            }
         }
     }
 
