@@ -23,7 +23,7 @@
                 android:layout_weight="1"
                 android:text="Título"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:fontFamily="@font/titilliumweb_bold"/>
 
         <!-- Espaço entre o título e o valor -->
         <Space

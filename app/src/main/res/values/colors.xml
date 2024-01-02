@@ -4,6 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="rosa">#C12D6D</color>
     <color name="azul_turquesa">#0C7EAE</color>
-    <color name="azul_marinho">#060821</color>
     <color name="branco_translucido">#A1FFFFFF</color>
+    <color name="azul_marinho">#060821</color>
+    <color name="azul_marinho_fundo_menu">#80060821</color>
 </resources>

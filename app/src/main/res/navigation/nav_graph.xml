@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_graph"
+            app:startDestination="@id/login"
+>
+    <fragment
+            android:id="@+id/lista_servicos"
+            android:name="com.senai.vsconnect.views.ListaServicoFragment"
+            android:label="@string/menu_servicos"
+            tools:layout="@layout/fragment_lista_servico">
+
+        <action android:id="@+id/action_lista_servicos_to_editar_imagem_perfil"
+                app:destination="@id/editar_imagem_perfil"/>
+        <action android:id="@+id/action_lista_servicos_to_login" app:destination="@id/login"/>
+    </fragment>
+    <fragment
+            android:id="@+id/login"
+            android:name="com.senai.vsconnect.views.LoginFragment"
+            android:label="@string/menu_sair"
+            tools:layout="@layout/fragment_login">
+        <action android:id="@+id/action_login_to_lista_servicos" app:destination="@id/lista_servicos"/>
+        <action android:id="@+id/action_login_to_editar_imagem_perfil" app:destination="@id/editar_imagem_perfil"/>
+    </fragment>
+    <fragment
+            android:id="@+id/editar_imagem_perfil"
+            android:label="@string/menu_editar_imagem"
+            android:name="com.senai.vsconnect.views.EditarImagemPerfilFragment"
+            tools:layout="@layout/fragment_editar_imagem_perfil">
+        <action android:id="@+id/action_editar_imagem_perfil_to_login" app:destination="@id/login"/>
+        <action android:id="@+id/action_editar_imagem_perfil_to_lista_servicos" app:destination="@id/lista_servicos"/>
+    </fragment>
+</navigation>

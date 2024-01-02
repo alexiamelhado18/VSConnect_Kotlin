@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+        xmlns:android="http://schemas.android.com/apk/res/android"
+>
+    <item
+            android:id="@+id/nav_editar_imagem"
+            android:title="@string/menu_editar_imagem"/>
+    <item
+            android:id="@+id/nav_lista_servicos"
+            android:title="@string/menu_servicos"/>
+    <item
+            android:id="@+id/nav_login"
+            android:title="@string/menu_sair"/>
+</menu>
